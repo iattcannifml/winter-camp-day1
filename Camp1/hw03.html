@@ -1,0 +1,27 @@
+<input type="text" id="input">
+<br>
+<textarea id="candidate" rows="10" readonly></textarea>
+
+<script>
+    const socket = new WebSocket("ws://ws.ncnu.net:10003");
+
+    document.getElementById('input').addEventListener('input', function() {
+        const text1 = document.getElementById('input').value;
+    
+        if (text1.length > 2) {
+            socket.send(text1);
+        }
+    });
+
+    socket.onmessage = (event) => {
+        const text2 = event.data;
+        const s1 = JSON.parse(text2);
+        let s = '';
+
+        for (let i = 0; i < s1.length; ++i) {
+            s += s1[i] + "\n";
+        }
+
+        document.getElementById("candidate").innerHTML = s;
+    }
+</script>

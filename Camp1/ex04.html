@@ -1,0 +1,28 @@
+<html>
+<script>
+function a() {
+    i=document.getElementById("num").innerHTML;
+    if(i==0){
+        alert("The value cannot be negative")
+    }
+    else{
+        --i;
+        document.getElementById("num").innerText=i;
+    }
+}
+
+function b() {
+    i=document.getElementById("num").innerHTML;
+    ++i;
+    document.getElementById("num").innerText=i;
+}
+
+
+</script>
+
+<body> 
+<button onclick='a();'>-</button>
+<span id='num'>0</span>
+<button onClick='b();'>+</button> 
+</body>
+</html>

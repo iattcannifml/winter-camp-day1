@@ -1,0 +1,33 @@
+<html>
+<script>
+function out() {
+    let s = "";
+    let x = Number(document.getElementById("x").value);
+    if (isNaN(x) || x <= 0) {
+        alert("請輸入一個正整數！");
+        return;
+    }
+
+    for (let i = 1; i <= x; ++i) {
+        for (let j = 1; j <= i; ++j) {
+            s += '*';
+        }
+        s += '<br>';
+    }
+
+    document.getElementById("s").innerHTML = s;
+
+    // 清空
+    document.getElementById('x').value = '';
+
+    // 焦點回到輸入框
+    document.getElementById('x').focus();
+}
+</script>
+
+<body>
+    <input type="text" id="x" placeholder="輸入正整數">
+    <button onclick="out()">start</button><br>
+    <span id="s"></span>
+</body>
+</html>
